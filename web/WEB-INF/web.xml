@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>CheckLogIn</servlet-name>
+        <servlet-class>servlets.CheckLogIn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckSignIn</servlet-name>
+        <servlet-class>servlets.CheckSignIn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignIn</servlet-name>
+        <servlet-class>servlets.SignIn</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckLogIn</servlet-name>
+        <url-pattern>/checklogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckSignIn</servlet-name>
+        <url-pattern>/checksignin</url-pattern>
+    </servlet-mapping>
+</web-app>
