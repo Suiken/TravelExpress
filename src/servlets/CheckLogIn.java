@@ -1,6 +1,6 @@
 package servlets;
 
-import dao.AccountDAO;
+import dao.UsersDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +16,7 @@ public class CheckLogIn extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        if(AccountDAO.accountExists(login, password))
+        if(UsersDAO.accountExists(login, password))
             System.out.println("GG");
         else
             System.out.println("PAS GG");

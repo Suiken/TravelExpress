@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AccountDAO {
+public class UsersDAO {
 
     public static boolean accountExists(String login, String password){
         TravelExpressJDBC databaseConnection = TravelExpressJDBC.getDatabaseConnection();

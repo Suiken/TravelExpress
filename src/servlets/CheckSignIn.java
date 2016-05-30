@@ -1,6 +1,6 @@
 package servlets;
 
-import dao.AccountDAO;
+import dao.UsersDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +23,6 @@ public class CheckSignIn extends HttpServlet {
         String state = request.getParameter("state");
         String email = request.getParameter("email");
 
-        AccountDAO.createAccount(login, password, lastName, firstName, address, city, state, email);
+        UsersDAO.createAccount(login, password, lastName, firstName, address, city, state, email);
     }
 }
