@@ -15,6 +15,10 @@
         <servlet-name>SignIn</servlet-name>
         <servlet-class>servlets.SignIn</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Disconnect</servlet-name>
+        <servlet-class>servlets.Disconnect</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CheckLogIn</servlet-name>
@@ -28,4 +32,9 @@
         <servlet-name>CheckSignIn</servlet-name>
         <url-pattern>/checksignin</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Disconnect</servlet-name>
+        <url-pattern>/disconnect</url-pattern>
+    </servlet-mapping>
+
 </web-app>

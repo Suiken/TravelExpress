@@ -1,18 +1,30 @@
 package dao;
 
+import model.Publication;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class PublicationsDAO {
-    public static ResultSet getPublicationsByUserLogin(String login) {
+    public static ArrayList<Publication> getPublicationsByUserLogin(String login) {
         try {
+            ArrayList<Publication> publications = new ArrayList<>();
+
             TravelExpressJDBC travelExpressJDBC = TravelExpressJDBC.getDatabaseConnection();
             PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("Select * From publications where login = ?");
             preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet;
+            while(resultSet.next()){
+                Publication publication = new Publication();
+                publication.setContent(resultSet.getString("content"));
+                publication.setNbPlaces(resultSet.getInt("nb_places"));
+                publication.setPublicationDate(resultSet.getDate("publication_date"));
+                publication.setRunDate(resultSet.getDate("run_date"));
+                publication.setFrequency(resultSet.getInt("frequency"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -5,8 +5,8 @@ import java.sql.*;
 public class TravelExpressJDBC {
 
     private String url = "jdbc:mysql://localhost:3306/travelexpress";
-    private String user = "root";
-    private String password = "";
+    private String user = "suiken";
+    private String password = "suiken";
     private static TravelExpressJDBC databaseConnection;
     private Connection connection;
 

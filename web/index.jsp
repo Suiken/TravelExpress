@@ -11,10 +11,23 @@
         <title>Travel Express - Log In</title>
     </head>
     <body>
-        <form method="POST" action="/checklogin">
-            Identifiant <input name="login" type="text" /><br/>
-            Mot de passe <input name="password" type="password" /><br/>
-            <input type="submit" value="Valider" />
-        </form>
+        <%
+            if(request.getSession().getAttribute("login") != null){
+                out.println("hello" + request.getSession().getAttribute("login"));
+        %>
+            <form method="POST" action="/disconnect">
+                <input type="submit" value="Déconnexion" />
+            </form>
+        <%
+            }else{
+        %>
+            <form method="POST" action="/checklogin">
+                Identifiant <input name="login" type="text" /><br/>
+                Mot de passe <input name="password" type="password" /><br/>
+                <input type="submit" value="Valider" />
+            </form>
+        <%
+            }
+        %>
     </body>
 </html>
