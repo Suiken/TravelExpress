@@ -12,7 +12,7 @@ public class CheckSignIn extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
+        response.sendRedirect("/");
     }
 
     @Override

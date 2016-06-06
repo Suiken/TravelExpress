@@ -19,6 +19,14 @@
         <servlet-name>Disconnect</servlet-name>
         <servlet-class>servlets.Disconnect</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserPublications</servlet-name>
+        <servlet-class>servlets.UserPublications</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddPublication</servlet-name>
+        <servlet-class>servlets.AddPublication</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CheckLogIn</servlet-name>
@@ -35,6 +43,14 @@
     <servlet-mapping>
         <servlet-name>Disconnect</servlet-name>
         <url-pattern>/disconnect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserPublications</servlet-name>
+        <url-pattern>/userpublications</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddPublication</servlet-name>
+        <url-pattern>/addpublication</url-pattern>
     </servlet-mapping>
 
 </web-app>

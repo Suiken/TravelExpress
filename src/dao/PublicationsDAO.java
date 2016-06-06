@@ -17,14 +17,7 @@ public class PublicationsDAO {
             PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("Select * From publications where login = ?");
             preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
-                Publication publication = new Publication();
-                publication.setContent(resultSet.getString("content"));
-                publication.setNbPlaces(resultSet.getInt("nb_places"));
-                publication.setPublicationDate(resultSet.getDate("publication_date"));
-                publication.setRunDate(resultSet.getDate("run_date"));
-                publication.setFrequency(resultSet.getInt("frequency"));
-            }
+            return resultSetToPublications(resultSet);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,5 +45,32 @@ public class PublicationsDAO {
         }
 
         return false;
+    }
+
+    public static ArrayList<Publication> getPublications(){
+        try {
+            TravelExpressJDBC travelExpressJDBC = TravelExpressJDBC.getDatabaseConnection();
+            PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("Select * From publications");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSetToPublications(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static ArrayList<Publication> resultSetToPublications(ResultSet resultSet) throws SQLException{
+        ArrayList<Publication> publications = new ArrayList<>();
+        while(resultSet.next()){
+            Publication publication = new Publication();
+            publication.setContent(resultSet.getString("content"));
+            publication.setNbPlaces(resultSet.getInt("nb_places"));
+            publication.setPublicationDate(resultSet.getDate("publication_date"));
+            publication.setRunDate(resultSet.getDate("run_date"));
+            publication.setFrequency(resultSet.getInt("frequency"));
+
+            publications.add(publication);
+        }
+        return publications;
     }
 }

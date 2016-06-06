@@ -19,6 +19,6 @@ public class Disconnect extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         request.getSession().removeAttribute("login");
-        request.getRequestDispatcher("").forward(request, response);
+        response.sendRedirect("/");
     }
 }

@@ -15,9 +15,11 @@
             if(request.getSession().getAttribute("login") != null){
                 out.println("hello" + request.getSession().getAttribute("login"));
         %>
-            <form method="POST" action="/disconnect">
-                <input type="submit" value="Déconnexion" />
-            </form>
+            <a href="disconnect">Déconnexion</a><br/>
+
+            <a href="addpublication">Créer une publication</a><br/>
+
+            <a href="userpublications">Voir ses publications</a>
         <%
             }else{
         %>

@@ -21,7 +21,6 @@ public class CheckLogIn extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("");
         if(UsersDAO.accountExists(login, password)) {
             request.getSession().setAttribute("login", login);
             System.out.println(login + " connecté");
@@ -29,6 +28,6 @@ public class CheckLogIn extends HttpServlet {
             System.out.println("PAS GG"); //TODO envoyer vers une page message d'erreur ou autre
         }
 
-        request.getRequestDispatcher("/").forward(request, response);
+        response.sendRedirect("/");
     }
 }
