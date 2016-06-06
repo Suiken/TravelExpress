@@ -2,5 +2,5 @@ package model;
 
 public class Reservation {
     private String nbPlaces;
-    private Publication publication;
+    private int publicationId;
 }

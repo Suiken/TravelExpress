@@ -1,4 +1,6 @@
-<%--
+<%@ page import="model.Publication" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.PublicationsDAO" %><%--
   Created by IntelliJ IDEA.
   User: suiken
   Date: 25/05/16
@@ -19,8 +21,15 @@
 
             <a href="addpublication">Créer une publication</a><br/>
 
-            <a href="userpublications">Voir ses publications</a>
+            <a href="userpublications">Voir ses publications</a><br/>
+
         <%
+                for(Publication publication: PublicationsDAO.getPublications()){
+        %>
+                    <%= publication.getContent() %><br/>
+        <%
+                }
+
             }else{
         %>
             <form method="POST" action="/checklogin">

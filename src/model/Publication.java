@@ -8,7 +8,7 @@ public class Publication {
     private Date publicationDate;
     private Date runDate;
     private int frequency;
-    private User user;
+    private String userLogin;
 
     public String getContent() {
         return content;
@@ -50,11 +50,11 @@ public class Publication {
         this.runDate = runDate;
     }
 
-    public User getUser() {
-        return user;
+    public String getUser() {
+        return userLogin;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String userLogin) {
+        this.userLogin = userLogin;
     }
 }
