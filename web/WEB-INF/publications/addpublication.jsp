@@ -12,12 +12,13 @@
 </head>
 <body>
     <form method="POST" action="/addpublication">
-        <label>Description</label><input name="content" type="text"/>
-        <label>Nombre de places</label><input name="nbPlaces" type="number"/>
-        <label>Date du trajet</label><input name="runDate" type="date"/>
-        <label>Fréquence</label><input name="frequency" type="number"/>
-        <label>Ville de départ</label><input name="departure" type="text"/>
-        <label>Ville d'arrivée</label><input name="arrival" type="text"/>
+        <label>Description</label><input name="content" type="text"/><br/>
+        <label>Nombre de places</label><input name="nbPlaces" type="number"/><br/>
+        <label>Date du trajet</label><input name="runDate" type="date"/><br/>
+        <label>Fréquence</label><input name="frequency" type="number"/><br/>
+        <label>Ville de départ</label><input name="departure" type="text"/><br/>
+        <label>Ville d'arrivée</label><input name="arrival" type="text"/><br/>
+        <input type="submit" value="Créer la publication"/>
     </form>
 </body>
 </html>

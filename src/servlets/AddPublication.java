@@ -15,7 +15,7 @@ public class AddPublication extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/addpublication.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/publications/addpublication.jsp").forward(request, response);
     }
 
     @Override
@@ -26,10 +26,12 @@ public class AddPublication extends HttpServlet {
         Date runDate = Date.valueOf(request.getParameter("runDate"));
         int frequency = Integer.valueOf(request.getParameter("frequency"));
         String userLogin = request.getParameter("userLogin");
-        
-        PublicationsDAO.createPublication(content, nbPlaces, publicationDate, runDate, frequency, userLogin);
+        String departure = request.getParameter("departure");
+        String arrival = request.getParameter("arrival");
 
-        request.getRequestDispatcher("/WEB-INF/addpublication.jsp").forward(request, response);
+        PublicationsDAO.createPublication(content, nbPlaces, publicationDate, runDate, frequency, userLogin, departure, arrival);
+
+        request.getRequestDispatcher("/WEB-INF/publications/addpublication.jsp").forward(request, response);
     }
 
 }

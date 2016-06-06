@@ -24,19 +24,21 @@ public class PublicationsDAO {
         return null;
     }
 
-    public static boolean createPublication(String content, int nbPlaces, Date publicationDate, Date runDate, int frequency, String userLogin) {
+    public static boolean createPublication(String content, int nbPlaces, Date publicationDate, Date runDate, int frequency, String userLogin, String departure, String arrival) {
         TravelExpressJDBC databaseConnection = TravelExpressJDBC.getDatabaseConnection();
 
         try {
             PreparedStatement statement = databaseConnection.prepareStatement("Insert Into " +
-                    "publications(content, nb_places, publication_date, run_date, frequency, user_login) " +
-                    "values(?, ?, ?, ?, ?, ?)");
+                    "publications(content, nb_places, publication_date, run_date, frequency, user_login, departure, arrival) " +
+                    "values(?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setString(1, content);
             statement.setInt(2, nbPlaces);
             statement.setDate(3, publicationDate);
             statement.setDate(4, runDate);
             statement.setInt(5, frequency);
             statement.setString(6, userLogin);
+            statement.setString(7, departure);
+            statement.setString(8, arrival);
             if (statement.executeUpdate() > 0)
                 return true;
         } catch (SQLException e) {
