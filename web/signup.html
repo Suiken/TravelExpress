@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr" class="js" data-locale="fr_FR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+	<title>Inscription | BlaBlaCar</title>
+
+	<link rel="canonical" href="https://www.blablacar.fr/inscription">
+
+	<link rel="alternate" href="https://www.blablacar.fr/inscription" hreflang="fr-FR">
+
+	<meta name="robots" content="index, follow">
+
+
+	<link rel="alternate" href="android-app://com.comuto/blablacar/signup?_locale=fr_FR">
+
+	<meta name="robots" content="noodp, noydir">
+	<meta name="description" content="BlaBlaCar met en relation des conducteurs qui voyagent avec des places libres avec des passagers recherchant un trajet sur le premier site européen de covoiturage.">
+	<meta name="keywords" content=" ">
+
+	<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.blablacar.fr/inscription">
+
+
+
+	<!--[if IE]><link href="/v-1465389293/assets/build/css/blablacar_1.css" rel="stylesheet" type="text/css"><![endif]-->
+	<!--[if IE]><link href="/v-1465389293/assets/build/css/blablacar_2.css" rel="stylesheet" type="text/css"><![endif]-->
+
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/apple-touch-icon-144x144.png">
+
+	<meta property="fb:app_id" content="123152947759014">
+	<meta property="og:url" content="https://www.blablacar.fr/inscription">
+
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:site_name" content="BlaBlaCar">
+	<meta property="og:title" content="Inscription">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://www.blablacar.fr/images/logo-bbc-fb.png">
+
+	<meta name="application-name" content="BlaBlaCar">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="https://www.blablacar.fr/blablacar-pinned-default.png">
+	<meta name="msapplication-square70x70logo" content="https://www.blablacar.fr/blablacar-pinned-small.png">
+	<meta name="msapplication-square150x150logo" content="https://www.blablacar.fr/blablacar-pinned-medium.png">
+	<meta name="msapplication-wide310x150logo" content="https://www.blablacar.fr/blablacar-pinned-wide.png">
+	<meta name="msapplication-square310x310logo" content="https://www.blablacar.fr/blablacar-pinned-large.png">
+
+	<link rel="image_src" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/logo.gif">
+
+        <!--[if lt IE 9]>
+        <script src="/v-1465389293/assets/static/html5shiv.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <link rel="stylesheet" type="text/css" href="signup.css" media="all">
+    </head>
+    <body itemscope="" itemtype="http://schema.org/Article">
+    	<div id="skip-link"><a href="#maincontent">Aller au contenu</a></div><div style="display: none;">
+    </div>
+    <!--[if lt IE 9]>
+        <div class="browser-message">
+            <p>
+                <strong>
+                Ceci est bien embêtant
+                </strong>
+                Vous utilisez un navigateur trop ancien pour utiliser ce site.
+                <br />
+                Si vous le pouvez, <a href="https://www.google.com/chrome" target="_blank">installez un navigateur récent</a>. Vous risquez sinon des problèmes de compatibilités.
+            </p>
+        </div>
+        <![endif]-->
+
+
+        <div class="page">
+        	<header class="site-header" role="banner" data-error="Une erreur est survenue. Réessayez plus tard.">
+
+        		<div class="container clearfix">
+        			<a href="https://www.blablacar.fr/" class="logo js-optInExcluded">
+        				<img src="blablacar-logo-290x48.png" alt="BlaBlaCar" height="24" width="145">
+        			</a>
+
+
+        		</div>
+        	</header>
+
+        	<div id="maincontent" class="container" role="main">
+        		<div class="flash-template alert no-icon hide clearfix" data-level-class="alert-LEVEL" data-message-selector=".flash-content">
+        			<a class="close" data-dismiss="alert" href="#">×</a>
+        			<i class="size26 pull-left no-margin-left margin-half-right" aria-hidden="true"></i>
+        			<p class="flash-content overflow-hidden"></p>
+        		</div>
+
+
+        		<!-- Facebook SDK -->
+        		<div id="fb-root"></div>
+
+
+        		<div class="register-intro clearfix">
+        			<div class="login-link-container">
+        				Déjà membre ?
+        				<a href="signin" class="btn-validation btn-large margin-left login-link login-toggle">
+        					Connectez-vous
+        				</a>
+        				<div class="login-container">
+        					<div style="display: none;" class="login form-register">
+        						<span class="login-arrow"></span>
+        						<div class="text-intro"></div>
+
+
+        						<form id="login-form" action="signin" method="POST" novalidate="">
+
+
+        							<p class="separator hr"><span>ou</span></p>
+
+        							<label class="register-email-wrapper">
+        								<input class="login-email registration-email" name="login" placeholder="Mon e-mail" type="email">
+        							</label>
+
+        							<label class="register-password-wrapper">
+        								<input class="login-pass registration-password" name="password" placeholder="Mon mot de passe" type="password">
+        							</label>
+
+        							<label for="remember_me_pop" class="register-remember-wrapper">
+        								<input id="remember_me_pop" name="_remember_me" type="checkbox">
+        								Se souvenir de moi
+        							</label>
+
+        							<div class="form-action">
+        								<button type="submit" name="_submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="ajax-loader-blue.gif" alt="" aria-hidden="true">
+        									Connexion
+        								</button>
+        							</div>
+        							<div class="align-right">
+        								<a class="blue" href="https://www.blablacar.fr/mot-de-passe-oublie">
+        									Mot de passe oublié
+        								</a>
+        							</div>
+        						</form>
+
+        						<div class="signin">
+        							<strong class="display-block">Pas encore membre ?</strong>
+        							<a class="blue" href="https://www.blablacar.fr/inscription">
+        								Inscrivez-vous gratuitement
+        							</a>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="register-container">
+        			<div class="row">
+        				<div class="span8">
+
+        					<h1 class="size24 line26 align-center margin-bottom">
+        						Pas encore membre ? Inscrivez-vous gratuitement
+        					</h1>
+
+        					<div class="box-register form-register">
+        						
+        						<p class="separator hr"><span>ou</span></p>
+
+        						<h3 class="padding-bottom no-margin-top">en <span>30 secondes </span> avec votre e-mail</h3>
+        						<form class="form-register-container padding-half-top" action="signup" method="post" accept-charset="utf-8" novalidate="">
+        							<div class="email-register margin-bottom">
+
+        							<div class="clearfix margin-bottom">
+        								<div class="register-firstname-wrapper"><label class="visually-hidden required">Prénom</label><input value="" id="registration_firstname" name="first_name" required="required" placeholder="Prénom" class="" type="text"><div class="controls"></div></div>
+        								<div class="register-lastname-wrapper"><label class="visually-hidden required">Nom</label><input value="" id="registration_lastname" name="last_name" required="required" placeholder="Nom" class="" type="text"><div class="controls"></div></div>
+        							</div>
+
+        							<div class="alert no-icon clearfix clear lastname-warning hide">
+        								<i class="bbc-icon2-exclamation-mark orange size26 pull-left no-margin-left margin-half-right" aria-hidden="true"></i>
+        								<p class="overflow-hidden">Renseignez votre nom complet</p>
+        							</div>
+
+        							<div class="register-email-wrapper"><label class="visually-hidden required">E-mail</label><input id="registration_email" name="email" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+
+        							<div class="register-first-wrapper"><label class="visually-hidden required">Mot de passe</label><div class="controls"><input title="" data-original-title="" id="registration_password_first" name="password" required="required" placeholder="Mot de passe (8 caractères min.)" data-validate="filter-password" class="registration-password" data-content="Choisissez un mot de passe difficile à deviner." data-error-layout="<p id=&quot;message-error-password&quot; class=&quot;alert alert-error no-icon&quot;></p>" data-url="https://www.blablacar.fr/check-password" type="password"></div></div>
+
+        							<div class="register-second-wrapper"><label class="visually-hidden required">Confirmer le mot de passe</label><div class="controls"><input id="registration_password_second" name="password2" required="required" placeholder="Confirmer le mot de passe" class="registration-password" type="password"></div></div>
+
+        							<div class="register-email-wrapper"><label class="visually-hidden required">Adresse</label><input id="registration_email" name="address" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+
+        							<div class="register-email-wrapper"><label class="visually-hidden required">Ville</label><input id="registration_email" name="city" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+
+        							<div class="register-email-wrapper"><label class="visually-hidden required">Pays</label><input id="registration_email" name="state" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+
+
+
+        							<div><input id="registration_newsletterFlag" name="registration[newsletterFlag]" required="required" value="1" checked="checked" type="checkbox"><label for="registration_newsletterFlag">
+        								Je veux recevoir des bons plans, des infos sur les nouveautés, des idées de voyages et des invitations aux BlaBlaTimes !
+        							</label></div>
+
+        							<div class="form-action">
+        								<button type="submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="ajax-loader-blue.gif" alt="" aria-hidden="true">
+        									Inscription avec un e-mail
+        								</button>
+        							</div>
+
+        							<p class="smallprint">En cliquant sur Inscription avec un e-mail, vous acceptez les <a href="https://www.blablacar.fr/blog/conditions-generales">Conditions générales</a> et certifiez avoir plus de 18 ans. <br>
+        								<br>
+        								Les informations ci-dessus sont toutes obligatoires pour devenir membre. Elles sont collectées par Comuto SA afin de créer votre compte, communiquer avec nous ou les membres et, le cas échéant, mettre un terme à notre relation. Pour exercer vos droits d’accès, de rectification et d’opposition, consultez nos <a href="https://www.blablacar.fr/blog/conditions-generales">CGU</a>.</p>
+        							</div>
+
+        							<input id="registration__token" name="registration[_token]" value="KbM9_MJ2WZT_-tXdIxQSgK2_mfvsnT8xRVoVPkZZDmM" type="hidden">
+        						</form>
+
+
+        					</div>
+        				</div>
+
+        				<div class="span4 homepage-features">
+        					<div class="fb-like-box-container">
+        						<div class="fb-page" data-href="https://www.facebook.com/blablacar.fr" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+        							<div class="fb-xfbml-parse-ignore"></div>
+        						</div>                </div>
+        						<div class="homepage-feature homepage-feature-easy no-left-margin">
+        							<h2>
+        								<a href="https://www.blablacar.fr/comment-ca-marche">
+        									Comment ça marche
+        								</a>
+        							</h2>
+
+        							<div class="img-block video no-top-padding">
+        								<a href="https://www.youtube.com/watch?v=iPXLIzfqFPQ" class="play-button" data-title="Voir la vidéo">
+        									<img src="home-new-video_fr_fr.png" alt="Voir la vidéo">
+        								</a>
+        							</div>
+
+        						</div>
+        						<div class="homepage-feature homepage-feature-reliable">
+        							<h2>
+        								<a href="https://www.blablacar.fr/confiance-fiabilite">Confiance &amp; Assurance</a>
+        							</h2>
+
+        							<div class="reliable clearfix">
+        								<a href="https://www.blablacar.fr/confiance-fiabilite" class="reliable-frame">
+        									<img src="home-trust-safety.jpg" alt="Confiance &amp; assurance" class="photo-trust">
+        									<p>
+        										<span class="star-rating star_5"></span>
+        									</p>
+        									<i class="bbc-icon2-tick green size46" aria-hidden="true"></i>
+        								</a>
+        							</div>
+
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+
+
+        		<footer class="footer-container" role="contentinfo">
+        			<section class="site-footer">
+        				<div class="row">
+        					<div class="relative span4">
+        						<h2>
+        							Infos pratiques 
+        						</h2>
+        						<ul class="footer-list">
+
+
+
+        							<li class="
+        							first                            ">
+        							<a href="https://www.blablacar.fr/comment-ca-marche">
+        								Comment ça marche
+        							</a>
+        						</li>
+
+
+
+        						<li class="
+        						">
+        						<a href="https://www.blablacar.fr/confiance-fiabilite">
+        							Confiance et sérénité
+        						</a>
+        					</li>
+
+
+
+        					<li class="
+        					">
+        					<a href="https://www.blablacar.fr/assurance-covoiturage">
+        						Assurance et covoiturage
+        					</a>
+        				</li>
+
+
+
+        				<li class="
+        				">
+        				<a href="https://www.blablacar.fr/niveau-experience">
+        					Niveaux d'expérience
+        				</a>
+        			</li>
+
+
+
+        			<li class="
+        			">
+        			<a href="https://www.blablacar.fr/apps-blablacar-mobile">
+        				Application mobile
+        			</a>
+        		</li>
+
+
+
+        		<li class="
+        		">
+        		<a href="https://www.blablacar.fr/blog/les-avis">
+        			Les avis
+        		</a>
+        	</li>
+
+
+
+        	<li class="
+        	">
+        	<a href="https://www.blablacar.fr/blog/ladies-only-fr">
+        		Entre femmes
+        	</a>
+        </li>
+        
+
+
+        <li class="
+        ">
+        <a href="https://www.blablacar.fr/conseils-prevention">
+        	Conseils prévention
+        </a>
+    </li>
+
+
+
+    <li class="
+    ">
+    <a href="https://www.blablacar.fr/blog/prix-du-covoiturage">
+    	Prix du covoiturage 
+    </a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/faq">
+	FAQ
+</a>
+</li>
+
+
+
+<li class="
+footer-contact            ">
+<a href="https://www.blablacar.fr/contact">
+	Contact
+</a>
+</li>
+</ul>
+
+</div>
+<div class="relative span4">
+	<h2>
+		A propos
+	</h2>
+	<ul class="footer-list">
+
+
+
+		<li class="
+		first                            ">
+		<a href="https://www.blablacar.fr/blog/qui-sommes-nous">
+			Qui sommes-nous ?
+		</a>
+	</li>
+
+
+
+	<li class="
+	">
+	<a href="https://www.blablacar.fr/blog/temoignages">
+		Témoignages et anecdotes
+	</a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/goodies">
+	Demandez vos stickers BlaBlaCar
+</a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/blog/presse">
+	Presse
+</a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/blog/recrutement">
+	Nous recrutons
+</a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/blog/widget-partenaires">
+	Partenaires
+</a>
+</li>
+
+
+
+<li class="
+js-optInExcluded            ">
+<a href="https://www.blablacar.fr/blog/utilisation-des-cookies">
+	Utilisation des cookies
+</a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/charte-de-bonne-conduite">
+	Charte de bonne conduite
+</a>
+</li>
+
+
+
+<li class="
+">
+<a href="https://www.blablacar.fr/blog/conditions-generales">
+	Conditions générales
+</a>
+</li>
+</ul>
+
+</div>
+<div class="relative span4">
+	<h2>
+		BlaBla News
+	</h2>
+	<ul class="footer-list">
+		<li class="first">
+			<div class="clearfix">
+				<div class="home-blog-post-illustration">
+					<a href="https://www.blablacar.fr/blog/jeu-festivals">
+						<img src="blogthumbnail_festival_120x90_v01.jpg" alt="Direction les festivals !" width="88">
+					</a>
+				</div>
+				<div class="home-blog-post-text">
+					<h3>
+						<a href="https://www.blablacar.fr/blog/jeu-festivals">
+							Direction les festivals !
+						</a>
+					</h3>
+					<p>
+						<a href="https://www.blablacar.fr/blog/jeu-festivals">
+
+							Bonjour à tous,
+							Cet été, la BlaBlaTeam vous donne rendez-vous sur 4 festivals en France : Hellfest, Musilac, ...                            </a>
+						</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="footer-list">
+			<li>
+				<div class="clearfix">
+					<div class="home-blog-post-illustration">
+						<a href="https://www.blablacar.fr/blog/blabladay">
+							<img src="vignette-bbday2016.png" alt="Vous êtes invités au BlaBlaDay !" width="88">
+						</a>
+					</div>
+					<div class="home-blog-post-text">
+						<h3>
+							<a href="https://www.blablacar.fr/blog/blabladay">
+								Vous êtes invités au BlaBlaDay !
+							</a>
+						</h3>
+						<p>
+							<a href="https://www.blablacar.fr/blog/blabladay">
+
+								Bonjour à tous,
+								Dimanche&nbsp;29 mai prochain, rendez-vous à la 3ème édition de notre BlaBlaDay&nbsp;au parc de la Vill...                            </a>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="footer-list">
+				<li class=" footer-contact">
+					<a href="https://www.blablacar.fr/blog">
+						Voir tous les articles du blog
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section class="periphal-link-footer">
+	<div class="row">
+
+
+		<div class="span3">
+			<h2>
+				Retrouvez-nous sur :
+			</h2>
+			<ul class="footer-social-network-list">
+
+				<li><a href="https://www.youtube.com/c/BlaBlaCarFR" class="youtube"><span>Youtube</span></a></li>
+				<li><a href="https://twitter.com/BlaBlaCar_FR" class="twitter"><span>Twitter</span></a></li>
+				<li><a href="https://fr-fr.facebook.com/blablacar.fr" class="facebook"><span>Facebook</span></a></li>
+				<li><a href="https://plus.google.com/+BlaBlaCarFR" rel="publisher" class="google-plus"><span>Google+</span></a></li>
+				<li><a href="https://instagram.com/blablacarfr" class="instagram"><span>Instagram</span></a></li>
+			</ul>
+			<p class="footer-copyright">
+				BlaBlaCar, 2016 ©
+			</p>
+		</div>
+
+	</div>
+
+</section>
+</footer>
+
+</div>
+
+
+
+
+</body>
+</html>
