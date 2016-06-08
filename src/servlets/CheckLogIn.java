@@ -14,7 +14,7 @@ public class CheckLogIn extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/index.html" ).forward( request, response );
     }
 
     @Override
@@ -25,9 +25,9 @@ public class CheckLogIn extends HttpServlet {
             request.getSession().setAttribute("login", login);
             System.out.println(login + " connecté");
         }else {
-            System.out.println("PAS GG"); //TODO envoyer vers une page message d'erreur ou autre
+            System.out.println("Échec de connexion"); //TODO envoyer vers une page message d'erreur ou autre
         }
 
-        response.sendRedirect("/");
+        response.sendRedirect("/profile");
     }
 }

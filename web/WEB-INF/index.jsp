@@ -1,6 +1,7 @@
 <%@ page import="model.Publication" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dao.PublicationsDAO" %><%--
+<%@ page import="dao.PublicationsDAO" %>
+<%--
   Created by IntelliJ IDEA.
   User: suiken
   Date: 25/05/16
@@ -15,13 +16,15 @@
     <body>
         <%
             if(request.getSession().getAttribute("login") != null){
-                out.println("hello" + request.getSession().getAttribute("login"));
+                out.println("hello" + request.getSession().getAttribute("login") + "<br/>");
         %>
             <a href="disconnect">Déconnexion</a><br/>
 
             <a href="addpublication">Créer une publication</a><br/>
 
             <a href="userpublications">Voir ses publications</a><br/>
+
+            <a href="profile">Voir son profil</a> <br/>
 
         <%
                 for(Publication publication: PublicationsDAO.getPublications()){

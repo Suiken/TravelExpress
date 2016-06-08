@@ -27,6 +27,10 @@
         <servlet-name>AddPublication</servlet-name>
         <servlet-class>servlets.AddPublication</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>servlets.Profile</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CheckLogIn</servlet-name>
@@ -52,5 +56,8 @@
         <servlet-name>AddPublication</servlet-name>
         <url-pattern>/addpublication</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
 </web-app>
