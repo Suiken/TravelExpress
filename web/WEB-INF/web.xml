@@ -12,8 +12,8 @@
         <servlet-class>servlets.CheckSignIn</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SignIn</servlet-name>
-        <servlet-class>servlets.SignIn</servlet-class>
+        <servlet-name>SignUp</servlet-name>
+        <servlet-class>servlets.SignUp</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Disconnect</servlet-name>
@@ -24,12 +24,20 @@
         <servlet-class>servlets.UserPublications</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AddPublication</servlet-name>
-        <servlet-class>servlets.AddPublication</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Profile</servlet-name>
         <servlet-class>servlets.Profile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignIn</servlet-name>
+        <servlet-class>servlets.SignIn</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Reservations</servlet-name>
+        <servlet-class>servlets.Reservations</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProfileUpdate</servlet-name>
+        <servlet-class>servlets.ProfileUpdate</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -37,8 +45,8 @@
         <url-pattern>/checklogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SignIn</servlet-name>
-        <url-pattern>/signin</url-pattern>
+        <servlet-name>SignUp</servlet-name>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CheckSignIn</servlet-name>
@@ -53,11 +61,19 @@
         <url-pattern>/userpublications</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AddPublication</servlet-name>
-        <url-pattern>/addpublication</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Profile</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reservations</servlet-name>
+        <url-pattern>/reservations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileUpdate</servlet-name>
+        <url-pattern>/profileupdate</url-pattern>
     </servlet-mapping>
 </web-app>

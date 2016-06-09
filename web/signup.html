@@ -53,13 +53,6 @@
 
 	<link rel="image_src" href="https://d1ovtcjitiy70m.cloudfront.net/vi-1/images/logo.gif">
 
-        <!--[if lt IE 9]>
-        <script src="/v-1465389293/assets/static/html5shiv.min.js"></script>
-        <![endif]-->
-
-
-
-
         <link rel="stylesheet" type="text/css" href="signup.css" media="all">
     </head>
     <body itemscope="" itemtype="http://schema.org/Article">
@@ -83,8 +76,8 @@
         	<header class="site-header" role="banner" data-error="Une erreur est survenue. Réessayez plus tard.">
 
         		<div class="container clearfix">
-        			<a href="https://www.blablacar.fr/" class="logo js-optInExcluded">
-        				<img src="blablacar-logo-290x48.png" alt="BlaBlaCar" height="24" width="145">
+        			<a href="/" class="logo js-optInExcluded">
+        				<img src="res/blablacar-logo-290x48.png" alt="BlaBlaCar" height="24" width="145">
         			</a>
 
 
@@ -121,7 +114,7 @@
         							<p class="separator hr"><span>ou</span></p>
 
         							<label class="register-email-wrapper">
-        								<input class="login-email registration-email" name="login" placeholder="Mon e-mail" type="email">
+        								<input class="login-email registration-email" name="login" placeholder="login" type="email">
         							</label>
 
         							<label class="register-password-wrapper">
@@ -134,7 +127,7 @@
         							</label>
 
         							<div class="form-action">
-        								<button type="submit" name="_submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="ajax-loader-blue.gif" alt="" aria-hidden="true">
+        								<button type="submit" name="_submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="res/ajax-loader-blue.gif" alt="" aria-hidden="true">
         									Connexion
         								</button>
         							</div>
@@ -147,7 +140,7 @@
 
         						<div class="signin">
         							<strong class="display-block">Pas encore membre ?</strong>
-        							<a class="blue" href="https://www.blablacar.fr/inscription">
+        							<a class="blue" href="signup">
         								Inscrivez-vous gratuitement
         							</a>
         						</div>
@@ -164,7 +157,7 @@
         					</h1>
 
         					<div class="box-register form-register">
-        						
+
         						<p class="separator hr"><span>ou</span></p>
 
         						<h3 class="padding-bottom no-margin-top">en <span>30 secondes </span> avec votre e-mail</h3>
@@ -181,17 +174,18 @@
         								<p class="overflow-hidden">Renseignez votre nom complet</p>
         							</div>
 
+										<div class="register-email-wrapper"><label class="visually-hidden required">E-mail</label><input name="login" required="required" placeholder="Login" class="registration-email" type="text"><div class="controls"></div></div>
         							<div class="register-email-wrapper"><label class="visually-hidden required">E-mail</label><input id="registration_email" name="email" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
 
         							<div class="register-first-wrapper"><label class="visually-hidden required">Mot de passe</label><div class="controls"><input title="" data-original-title="" id="registration_password_first" name="password" required="required" placeholder="Mot de passe (8 caractères min.)" data-validate="filter-password" class="registration-password" data-content="Choisissez un mot de passe difficile à deviner." data-error-layout="<p id=&quot;message-error-password&quot; class=&quot;alert alert-error no-icon&quot;></p>" data-url="https://www.blablacar.fr/check-password" type="password"></div></div>
 
         							<div class="register-second-wrapper"><label class="visually-hidden required">Confirmer le mot de passe</label><div class="controls"><input id="registration_password_second" name="password2" required="required" placeholder="Confirmer le mot de passe" class="registration-password" type="password"></div></div>
 
-        							<div class="register-email-wrapper"><label class="visually-hidden required">Adresse</label><input id="registration_email" name="address" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+        							<div class="register-email-wrapper"><label class="visually-hidden required">Adresse</label><input name="address" required="required" placeholder="Adresse" class="registration-email" type="text"><div class="controls"></div></div>
 
-        							<div class="register-email-wrapper"><label class="visually-hidden required">Ville</label><input id="registration_email" name="city" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+        							<div class="register-email-wrapper"><label class="visually-hidden required">Ville</label><input name="city" required="required" placeholder="Ville" class="registration-email" type="text"><div class="controls"></div></div>
 
-        							<div class="register-email-wrapper"><label class="visually-hidden required">Pays</label><input id="registration_email" name="state" required="required" placeholder="E-mail" class="registration-email" type="email"><div class="controls"></div></div>
+        							<div class="register-email-wrapper"><label class="visually-hidden required">Pays</label><input name="state" required="required" placeholder="État" class="registration-email" type="text"><div class="controls"></div></div>
 
 
 
@@ -200,7 +194,7 @@
         							</label></div>
 
         							<div class="form-action">
-        								<button type="submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="ajax-loader-blue.gif" alt="" aria-hidden="true">
+        								<button type="submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="res/ajax-loader-blue.gif" alt="" aria-hidden="true">
         									Inscription avec un e-mail
         								</button>
         							</div>
@@ -231,7 +225,7 @@
 
         							<div class="img-block video no-top-padding">
         								<a href="https://www.youtube.com/watch?v=iPXLIzfqFPQ" class="play-button" data-title="Voir la vidéo">
-        									<img src="home-new-video_fr_fr.png" alt="Voir la vidéo">
+        									<img src="res/home-new-video_fr_fr.png" alt="Voir la vidéo">
         								</a>
         							</div>
 
@@ -243,11 +237,10 @@
 
         							<div class="reliable clearfix">
         								<a href="https://www.blablacar.fr/confiance-fiabilite" class="reliable-frame">
-        									<img src="home-trust-safety.jpg" alt="Confiance &amp; assurance" class="photo-trust">
+        									<img src="res/home-trust-safety.jpg" alt="Confiance &amp; assurance" class="photo-trust">
         									<p>
         										<span class="star-rating star_5"></span>
         									</p>
-        									<i class="bbc-icon2-tick green size46" aria-hidden="true"></i>
         								</a>
         							</div>
 
@@ -263,7 +256,7 @@
         				<div class="row">
         					<div class="relative span4">
         						<h2>
-        							Infos pratiques 
+        							Infos pratiques
         						</h2>
         						<ul class="footer-list">
 
@@ -329,7 +322,7 @@
         		Entre femmes
         	</a>
         </li>
-        
+
 
 
         <li class="
@@ -344,7 +337,7 @@
     <li class="
     ">
     <a href="https://www.blablacar.fr/blog/prix-du-covoiturage">
-    	Prix du covoiturage 
+    	Prix du covoiturage
     </a>
 </li>
 
@@ -466,7 +459,7 @@ js-optInExcluded            ">
 			<div class="clearfix">
 				<div class="home-blog-post-illustration">
 					<a href="https://www.blablacar.fr/blog/jeu-festivals">
-						<img src="blogthumbnail_festival_120x90_v01.jpg" alt="Direction les festivals !" width="88">
+						<img src="res/blogthumbnail_festival_120x90_v01.jpg" alt="Direction les festivals !" width="88">
 					</a>
 				</div>
 				<div class="home-blog-post-text">
@@ -490,7 +483,7 @@ js-optInExcluded            ">
 				<div class="clearfix">
 					<div class="home-blog-post-illustration">
 						<a href="https://www.blablacar.fr/blog/blabladay">
-							<img src="vignette-bbday2016.png" alt="Vous êtes invités au BlaBlaDay !" width="88">
+							<img src="res/vignette-bbday2016.png" alt="Vous êtes invités au BlaBlaDay !" width="88">
 						</a>
 					</div>
 					<div class="home-blog-post-text">

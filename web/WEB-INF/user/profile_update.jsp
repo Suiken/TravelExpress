@@ -1,4 +1,5 @@
 <%@ page import="model.User" %>
+<%@ page import="model.Preference" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="fr" class="js" data-locale="fr_FR">
 <head>
@@ -50,6 +51,7 @@
 <body itemscope="" itemtype="http://schema.org/Article">
 <%
     User user = (User) request.getAttribute("user");
+    Preference preference = (Preference) request.getAttribute("preference");
 %>
 <div id="skip-link"><a href="#maincontent">Aller au contenu</a>
 </div>
@@ -70,7 +72,7 @@
     <header class="site-header" role="banner" data-error="Une erreur est survenue. Réessayez plus tard.">
 
         <div class="container clearfix">
-            <a href="https://www.blablacar.fr/" class="logo js-optInExcluded">
+            <a href="/" class="logo js-optInExcluded">
                 <img src="res/blablacar-logo-290x48.png" alt="BlaBlaCar" height="24" width="145">
             </a>
 
@@ -83,48 +85,6 @@
                         </a>
                         <span class="btn-separator">ou</span>
                         <a class="btn-edition" href="https://www.blablacar.fr/proposer">Proposer un trajet</a>
-                    </li>
-                    <li class="site-menu-user logged">
-                        <ul class="unstyled no-margin">
-                            <li class="messages">
-                                <a href="https://www.blablacar.fr/messages/received" rel="nofollow">
-                                    <span class="visually-hidden">Aucun message</span>
-                                </a>
-                                <input id="async_toolbar_logged" value="1" type="hidden">
-                            </li>
-                            <li class="alerts">
-                                <a href="https://www.blablacar.fr/dashboard" rel="nofollow">
-                                    <span class="badge-notification">2</span>
-                                    <span class="visually-hidden">notifications non lues</span>
-                                </a>
-                            </li>
-                            <li class="user-profil dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                    <img title="" oldtitle="<%= user.getFirstName() + " " + user.getLastName() %>" data-hasqtip="5" class="PhotoWrapper-user PhotoWrapper-user--smallest tip" alt="user" src="res/passenger-male-18.png" style="width: 18; height: 18;" data-placement="bottom" height="18" width="18"><%= user.getFirstName() %><i class="caret" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu size14" role="menu" aria-labelledby="dLabel">
-                                    <li class="pad">
-                                        <a href="https://www.blablacar.fr/dashboard">Tableau de bord</a>
-                                    </li>
-                                    <li class="divider" aria-hidden="true"></li>
-                                    <li>
-                                        <a href="https://www.blablacar.fr/dashboard/trip-offers/active">Vos annonces</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.blablacar.fr/dashboard/my-bookings">Vos réservations</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.blablacar.fr/dashboard/profile/general">Profil</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="https://www.blablacar.fr/deconnexion">Se déconnecter</a>
-                                    </li>
-                                    <li class="divider" aria-hidden="true"></li>
-                                </ul>
-                            </li>
-                        </ul>
-
                     </li>
 
                 </ul>
@@ -146,16 +106,16 @@
             <div class="tab-details">
                 <ul class="nav nav-tabs new" id="myTab">
                     <li class="active">
-                        <a href="https://www.blablacar.fr/dashboard">Tableau de bord</a>
+                        <a href="profile">Tableau de bord</a>
                     </li>
                     <li>
-                        <a href="https://www.blablacar.fr/dashboard/trip-offers/active">Vos annonces</a>
+                        <a href="userpublications">Vos publications</a>
                     </li>
                     <li>
-                        <a href="https://www.blablacar.fr/dashboard/my-bookings">Vos réservations</a>
+                        <a href="reservations">Vos réservations</a>
                     </li>
                     <li>
-                        <a href="https://www.blablacar.fr/dashboard/profile/general">Profil</a>
+                        <a href="profileupdate">Profil</a>
                     </li>
 
                 </ul>
@@ -225,13 +185,72 @@
                     </div>
 
                     <div class="span8 dashboard-notifications-messages">
-                        <%= user.getFirstName() %><br/>
-                        <%= user.getLastName() %><br/>
-                        <%= user.getAddress() %><br/>
-                        <%= user.getCity() %><br/>
-                        <%= user.getState() %><br/>
-                        <%= user.getEmail() %><br/>
-
+                        <form method="POST" action="profileupdate">
+                            <h3>Profil</h3>
+                            <table>
+                                <tr>
+                                    <td>Prénom</td>
+                                    <td><input name="first_name" type="text" value="<%= user.getFirstName() %>" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Nom de famille</td>
+                                    <td><input name="last_name" type="text" value="<%= user.getLastName() %>" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Adresse</td>
+                                    <td><input name="address" type="text" value="<%= user.getAddress() %>" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Ville</td>
+                                    <td><input name="city" type="text" value="<%= user.getCity() %>" /></td>
+                                </tr>
+                                <tr>
+                                    <td>État</td>
+                                    <td><input name="state" type="text" value="<%= user.getState() %>" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input name="email" type="text" value="<%= user.getEmail() %>" /></td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <h3>Préférences</h3>
+                            <table>
+                                <tr>
+                                    <td>Cigarette</td>
+                                    <td><input name="smoke" type="checkbox" <% if(preference.isSmoke()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Téléphone</td>
+                                    <td><input name="phone" type="checkbox" <% if(preference.isPhone()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Climatisation</td>
+                                    <td><input name="aircon" type="checkbox" <% if(preference.isAircon()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Animaux</td>
+                                    <td><input name="animal" type="checkbox" <% if(preference.isAnimal()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Valise</td>
+                                    <td><input name="suitcase" type="checkbox" <% if(preference.isSuitcase()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Vélo</td>
+                                    <td><input name="bicycle" type="checkbox" <% if(preference.isBicycle()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Ski</td>
+                                    <td><input name="ski" type="checkbox" <% if(preference.isSki()) out.println("checked"); %>/></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input name="emailp" type="checkbox" <% if(preference.isEmail()) out.println("checked"); %>/></td>
+                                </tr>
+                            </table>
+                            <input type="submit" value="Mettre à jour les informations" />
+                        </form>
                     </div>
                 </div>
             </section>

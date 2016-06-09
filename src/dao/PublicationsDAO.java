@@ -49,10 +49,11 @@ public class PublicationsDAO {
         return false;
     }
 
-    public static ArrayList<Publication> getPublications(){
+    public static ArrayList<Publication> getPublications(String userLogin){
         try {
             TravelExpressJDBC travelExpressJDBC = TravelExpressJDBC.getDatabaseConnection();
-            PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("Select * From publications");
+            PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("Select * From publications where user_login <> ?");
+            preparedStatement.setString(1, userLogin);
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSetToPublications(resultSet);
         } catch (SQLException e) {
@@ -61,15 +62,37 @@ public class PublicationsDAO {
         return null;
     }
 
+    public static boolean updateNbPlaces(int id, int nbPlaces){
+        TravelExpressJDBC databaseConnection = TravelExpressJDBC.getDatabaseConnection();
+
+        try {
+            PreparedStatement statement = databaseConnection.prepareStatement("update publications " +
+                    "set nb_places = ? " +
+                    "where id = ?");
+            statement.setInt(1, nbPlaces);
+            statement.setInt(2, id);
+            if (statement.executeUpdate() > 0)
+                return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Modification de la publication échouée");
+        }
+
+        return false;
+    }
+
     private static ArrayList<Publication> resultSetToPublications(ResultSet resultSet) throws SQLException{
         ArrayList<Publication> publications = new ArrayList<>();
         while(resultSet.next()){
             Publication publication = new Publication();
+            publication.setId(resultSet.getInt("id"));
             publication.setContent(resultSet.getString("content"));
             publication.setNbPlaces(resultSet.getInt("nb_places"));
             publication.setPublicationDate(resultSet.getDate("publication_date"));
             publication.setRunDate(resultSet.getDate("run_date"));
             publication.setFrequency(resultSet.getInt("frequency"));
+            publication.setDeparture(resultSet.getString("departure"));
+            publication.setArrival(resultSet.getString("arrival"));
 
             publications.add(publication);
         }

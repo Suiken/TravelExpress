@@ -71,6 +71,29 @@ public class UsersDAO {
         return null;
     }
 
+    public static int updateAllByLogin(String lastName, String firstName, String address, String city, String state, String email, String login){
+        TravelExpressJDBC databaseConnection = TravelExpressJDBC.getDatabaseConnection();
+
+        try{
+            PreparedStatement statement = databaseConnection.prepareStatement("Update users " +
+                    "set last_name = ?, first_name = ?, address = ?, city = ?, state = ?, email = ? " +
+                    "where login = ?");
+            statement.setString(1, lastName);
+            statement.setString(2, firstName);
+            statement.setString(3, address);
+            statement.setString(4, city);
+            statement.setString(5, state);
+            statement.setString(6, email);
+            statement.setString(7, login);
+            return statement.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+            System.err.println("Requête échouée");
+        }
+
+        return -1;
+    }
+
     private static User resultSetToUser(ResultSet resultSet) throws SQLException{
         User user = new User();
         while(resultSet.next()){

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="fr" class="js" data-locale="fr_FR">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -56,7 +57,7 @@
             <header class="site-header" role="banner" data-error="Une erreur est survenue. Réessayez plus tard.">
                 
                 <div class="container clearfix">
-                    <a href="https://www.blablacar.fr/" class="logo js-optInExcluded">
+                    <a href="/" class="logo js-optInExcluded">
                         <img src="res/blablacar-logo-290x48.png" alt="BlaBlaCar" height="24" width="145">
                     </a>
                     
@@ -67,13 +68,13 @@
                                 <a href="https://www.blablacar.fr/recherche-covoiturage" class="btn-2action">
                                     Rechercher
                                 </a>
-                                <span class="btn-separator">ou</span>
+                                <span class="btn-separator"></span>
                                 <a class="btn-edition" href="https://www.blablacar.fr/proposer">Proposer un trajet</a>
                             </li>
                             <li class="site-menu-user">
                                 <ul class="unstyled no-margin">
                                     <li>
-                                        <a href="https://www.blablacar.fr/inscription">Inscription</a>
+                                        <a href="signup">Inscription</a>
                                     </li>
                                     <li class="margin-half-right no-border">
                                         <a href="https://www.blablacar.fr/comment-ca-marche" class="help">Comment ça marche</a>

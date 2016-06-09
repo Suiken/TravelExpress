@@ -70,7 +70,7 @@
     <header class="site-header" role="banner" data-error="Une erreur est survenue. Réessayez plus tard.">
 
         <div class="container clearfix">
-            <a href="https://www.blablacar.fr/" class="logo js-optInExcluded">
+            <a href="/" class="logo js-optInExcluded">
                 <img src="res/blablacar-logo-290x48.png" alt="BlaBlaCar" height="24" width="145">
             </a>
 
@@ -83,48 +83,6 @@
                         </a>
                         <span class="btn-separator">ou</span>
                         <a class="btn-edition" href="https://www.blablacar.fr/proposer">Proposer un trajet</a>
-                    </li>
-                    <li class="site-menu-user logged">
-                        <ul class="unstyled no-margin">
-                            <li class="messages">
-                                <a href="https://www.blablacar.fr/messages/received" rel="nofollow">
-                                    <span class="visually-hidden">Aucun message</span>
-                                </a>
-                                <input id="async_toolbar_logged" value="1" type="hidden">
-                            </li>
-                            <li class="alerts">
-                                <a href="https://www.blablacar.fr/dashboard" rel="nofollow">
-                                    <span class="badge-notification">2</span>
-                                    <span class="visually-hidden">notifications non lues</span>
-                                </a>
-                            </li>
-                            <li class="user-profil dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                    <img title="" oldtitle="<%= user.getFirstName() + " " + user.getLastName() %>" data-hasqtip="5" class="PhotoWrapper-user PhotoWrapper-user--smallest tip" alt="user" src="res/passenger-male-18.png" style="width: 18; height: 18;" data-placement="bottom" height="18" width="18"><%= user.getFirstName() %><i class="caret" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu size14" role="menu" aria-labelledby="dLabel">
-                                    <li class="pad">
-                                        <a href="https://www.blablacar.fr/dashboard">Tableau de bord</a>
-                                    </li>
-                                    <li class="divider" aria-hidden="true"></li>
-                                    <li>
-                                        <a href="https://www.blablacar.fr/dashboard/trip-offers/active">Vos annonces</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.blablacar.fr/dashboard/my-bookings">Vos réservations</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.blablacar.fr/dashboard/profile/general">Profil</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="https://www.blablacar.fr/deconnexion">Se déconnecter</a>
-                                    </li>
-                                    <li class="divider" aria-hidden="true"></li>
-                                </ul>
-                            </li>
-                        </ul>
-
                     </li>
 
                 </ul>
@@ -146,16 +104,16 @@
             <div class="tab-details">
                 <ul class="nav nav-tabs new" id="myTab">
                     <li class="active">
-                        <a href="https://www.blablacar.fr/dashboard">Tableau de bord</a>
+                        <a href="profile">Tableau de bord</a>
                     </li>
                     <li>
-                        <a href="https://www.blablacar.fr/dashboard/trip-offers/active">Vos annonces</a>
+                        <a href="userpublications">Vos publications</a>
                     </li>
                     <li>
-                        <a href="https://www.blablacar.fr/dashboard/my-bookings">Vos réservations</a>
+                        <a href="reservations">Vos réservations</a>
                     </li>
                     <li>
-                        <a href="https://www.blablacar.fr/dashboard/profile/general">Profil</a>
+                        <a href="profileupdate">Profil</a>
                     </li>
 
                 </ul>
@@ -225,12 +183,32 @@
                     </div>
 
                     <div class="span8 dashboard-notifications-messages">
-                        <%= user.getFirstName() %><br/>
-                        <%= user.getLastName() %><br/>
-                        <%= user.getAddress() %><br/>
-                        <%= user.getCity() %><br/>
-                        <%= user.getState() %><br/>
-                        <%= user.getEmail() %><br/>
+                        <table>
+                            <tr>
+                                <td><label>Prénom</label></td>
+                                <td><%= user.getFirstName() %></td>
+                            </tr>
+                            <tr>
+                                <td><label>Nom de famille</label></td>
+                                <td><%= user.getLastName() %></td>
+                            </tr>
+                            <tr>
+                                <td><label>Adresse</label></td>
+                                <td><%= user.getAddress() %></td>
+                            </tr>
+                            <tr>
+                                <td><label>Ville</label></td>
+                                <td><%= user.getCity() %></td>
+                            </tr>
+                            <tr>
+                                <td><label>État</label></td>
+                                <td><%= user.getState() %></td>
+                            </tr>
+                            <tr>
+                                <td><label>Email</label></td>
+                                <td><%= user.getEmail() %></td>
+                            </tr>
+                        </table>
 
                     </div>
                 </div>
