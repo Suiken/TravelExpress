@@ -1,7 +1,10 @@
 <%@ page import="model.User" %>
 <%@ page import="model.Publication" %>
 <%@ page import="java.util.HashMap" %>
+<<<<<<< HEAD
 <%@ page import="java.util.ArrayList" %>
+=======
+>>>>>>> 85dc0b982192eab8acfda94353bf92c72010357d
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="fr" class="js" data-locale="fr_FR">
 <head>
@@ -205,6 +208,7 @@
                         <%
                             }
                         %>
+
                         <hr/>
                         <h3>Publications</h3>
                         <br/>

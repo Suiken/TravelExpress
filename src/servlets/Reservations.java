@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 import java.util.ArrayList;
+
 import java.util.HashMap;
 
 public class Reservations extends HttpServlet {
@@ -19,11 +21,13 @@ public class Reservations extends HttpServlet {
         User user = UsersDAO.getUserByLogin((String) request.getSession().getAttribute("login"));
         request.setAttribute("user", user);
 
+
         HashMap<Publication, Integer> publicationsReserved = PublicationsDAO.getNumberOfPublicationsReservedByUser(user.getLogin());
         request.setAttribute("publicationsReserved", publicationsReserved);
 
         ArrayList<Publication> publications = PublicationsDAO.getPublications(user.getLogin());
         request.setAttribute("publications", publications);
+
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/user/reservations.jsp").forward(request, response);
     }

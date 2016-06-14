@@ -121,6 +121,7 @@ public class PublicationsDAO {
             HashMap<Publication, Integer> publicationsReserved = new HashMap<>();
             TravelExpressJDBC travelExpressJDBC = TravelExpressJDBC.getDatabaseConnection();
             PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("" +
+
                     "select publications.*, sum(reservations.nb_places) as reservation_number " +
                     "from reservations " +
                     "join publications on reservations.publication_id = publications.id " +
