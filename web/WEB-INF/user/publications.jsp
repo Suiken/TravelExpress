@@ -217,7 +217,6 @@
                             ArrayList<Publication> publications = (ArrayList<Publication>) request.getAttribute("publications");
                             for(Publication publication : publications){
                         %>
-                        <form method="POST" action="reservations">
                             <table>
                                 <input type="hidden" name="id" value="<%= publication.getId() %>" />
                                 <input type="hidden" name="nbPlaces" value="<%= publication.getNbPlaces()%>" />
@@ -234,10 +233,8 @@
                                 </tr>
                                 <tr>
                                     <td><%= publication.getNbPlaces() %> places restantes</td>
-                                    <td><input type="submit" value="Réserver" /></td>
                                 </tr>
                             </table>
-                        </form>
                             <br/>
                         <%
                             }

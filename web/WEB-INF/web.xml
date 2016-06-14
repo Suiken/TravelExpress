@@ -39,6 +39,10 @@
         <servlet-name>ProfileUpdate</servlet-name>
         <servlet-class>servlets.ProfileUpdate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>servlets.Search</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>CheckLogIn</servlet-name>
@@ -75,5 +79,9 @@
     <servlet-mapping>
         <servlet-name>ProfileUpdate</servlet-name>
         <url-pattern>/profileupdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
 </web-app>

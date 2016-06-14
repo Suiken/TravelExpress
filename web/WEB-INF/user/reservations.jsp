@@ -1,4 +1,7 @@
 <%@ page import="model.User" %>
+<%@ page import="model.Publication" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="fr" class="js" data-locale="fr_FR">
 <head>
@@ -50,6 +53,7 @@
 <body itemscope="" itemtype="http://schema.org/Article">
 <%
     User user = (User) request.getAttribute("user");
+    HashMap<Publication, Integer> publicationsReserved = (HashMap<Publication, Integer>) request.getAttribute("publicationsReserved");
 %>
 <div id="skip-link"><a href="#maincontent">Aller au contenu</a>
 </div>
@@ -183,13 +187,56 @@
                     </div>
 
                     <div class="span8 dashboard-notifications-messages">
-                        <%= user.getFirstName() %><br/>
-                        <%= user.getLastName() %><br/>
-                        <%= user.getAddress() %><br/>
-                        <%= user.getCity() %><br/>
-                        <%= user.getState() %><br/>
-                        <%= user.getEmail() %><br/>
+                        <h3>Vos réservations</h3>
 
+                        <%
+                            for(Publication publication : publicationsReserved.keySet()){
+                        %>
+                        <table>
+                                <tr>
+                                    <td>De <%= publication.getDeparture() %></td>
+                                    <td>À <%= publication.getArrival() %></td>
+                                </tr>
+                                <tr>
+                                    <td>À <%= publication.getRunDate() %></td>
+                                    <td><%= publicationsReserved.get(publication) %> places réservées</td>
+                                </tr>
+                        </table>
+                        <%
+                            }
+                        %>
+                        <hr/>
+                        <h3>Publications</h3>
+                        <br/>
+                        <%
+                            ArrayList<Publication> publications = (ArrayList<Publication>) request.getAttribute("publications");
+                            for(Publication publication : publications){
+                        %>
+                        <form method="POST" action="reservations">
+                            <table>
+                                <input type="hidden" name="id" value="<%= publication.getId() %>" />
+                                <input type="hidden" name="nbPlaces" value="<%= publication.getNbPlaces()%>" />
+                                <tr>
+                                    <td>De <%= publication.getDeparture() %></td>
+                                    <td>à <%= publication.getArrival() %></td>
+                                </tr>
+                                <tr>
+                                    <td>le <%= publication.getRunDate() %></td>
+                                </tr>
+                                <tr>
+                                    <td>Description :</td>
+                                    <td><%= publication.getContent() %></td>
+                                </tr>
+                                <tr>
+                                    <td><%= publication.getNbPlaces() %> places restantes</td>
+                                    <td><input type="submit" value="Réserver" /></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <br/>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
             </section>

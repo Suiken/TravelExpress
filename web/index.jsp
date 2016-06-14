@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<%@ page import="model.Publication" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="dao.PublicationsDAO" %>
+<%--
+Created by IntelliJ IDEA.
+User: suiken
+Date: 25/05/16
+Time: 23:13
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="fr" class="js" data-locale="fr_FR">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -110,36 +120,6 @@
         										</p>
 
 
-        										<form id="login-form" action="https://www.blablacar.fr/login_check" method="POST" novalidate="">
-
-
-        											<p class="separator hr"><span>ou</span></p>
-
-        											<label class="register-email-wrapper">
-        												<input class="login-email registration-email" name="_username" placeholder="Mon e-mail" type="email">
-        											</label>
-
-        											<label class="register-password-wrapper">
-        												<input class="login-pass registration-password" name="_password" placeholder="Mon mot de passe" type="password">
-        											</label>
-
-        											<label for="remember_me_pop" class="register-remember-wrapper">
-        												<input id="remember_me_pop" name="_remember_me" type="checkbox">
-        												Se souvenir de moi
-        											</label>
-
-        											<div class="form-action">
-        												<button type="submit" name="_submit" class="btn-validation btn-large full-width apply-btn-loader"><img class="img-loader hide" src="res/ajax-loader-blue.gif" alt="" aria-hidden="true">
-        													Connexion
-        												</button>
-        											</div>
-        											<div class="align-right">
-        												<a class="blue" href="https://www.blablacar.fr/mot-de-passe-oublie">
-        													Mot de passe oublié
-        												</a>
-        											</div>
-        										</form>
-
         										<div class="signin">
         											<strong class="display-block">Pas encore membre ?</strong>
         											<a class="blue" href="signin">
@@ -175,16 +155,16 @@
         		<div class="hp-hero">
         			<div class="hp-hero-search u-clearfix">
         				<h1 class="margin-half-bottom">Trouvez votre covoiturage</h1>
-        				<form id="search-form" class="search-form no-margin" action="https://www.blablacar.fr/search" role="search">
+        				<form id="search-form" class="search-form no-margin" method="POST" action="search">
 
         					<div class="from">
-        						<input value="" id="search_from_name" data-autocomplete="name" name="fn" title="De" placeholder="De" class="search-from place-autocomplete no-margin-bottom" autocomplete="off" type="text">
+        						<input value="" id="departure" data-autocomplete="name" name="departure" title="De" placeholder="De" class="search-from place-autocomplete no-margin-bottom" autocomplete="off" type="text">
         						<input name="fc" data-autocomplete="coordinates" data-autocomplete-ref="search_from_name" type="hidden">
         						<input name="fcc" data-autocomplete="country_code" data-autocomplete-ref="search_from_name" type="hidden">
         					</div>
 
         					<div class="to">
-        						<input value="" id="search_to_name" data-autocomplete="name" name="tn" title="À" placeholder="À" class="search-to place-autocomplete no-margin-bottom" autocomplete="off" type="text">
+        						<input value="" id="arrival" data-autocomplete="name" name="arrival" title="À" placeholder="À" class="search-to place-autocomplete no-margin-bottom" autocomplete="off" type="text">
         						<input name="tc" data-autocomplete="coordinates" data-autocomplete-ref="search_to_name" type="hidden">
         						<input name="tcc" data-autocomplete="country_code" data-autocomplete-ref="search_to_name" type="hidden">
         					</div>
@@ -244,6 +224,44 @@
         			</div>
         		</div>
 
+				<%
+					ArrayList<Publication> publications = (ArrayList<Publication>) request.getAttribute("publications");
+					if(publications != null){
+				%>
+				<hr/>
+				<h3>Publications</h3>
+				<br/>
+					<%
+						for(Publication publication : publications){
+					%>
+					<table>
+						<form method="POST" action="reservations">
+							<input type="hidden" name="id" value="<%= publication.getId() %>" />
+							<input type="hidden" name="nbPlaces" value="<%= publication.getNbPlaces()%>" />
+							<tr>
+								<td>De <%= publication.getDeparture() %></td>
+								<td>à <%= publication.getArrival() %></td>
+							</tr>
+							<tr>
+								<td>le <%= publication.getRunDate() %></td>
+							</tr>
+							<tr>
+								<td>Description :</td>
+								<td><%= publication.getContent() %></td>
+							</tr>
+							<tr>
+								<td><%= publication.getNbPlaces() %> places restantes</td>
+								<td><input type="submit" value="Réserver" /></td>
+							</tr>
+						</form>
+					</table>
+				<br/>
+					<%
+						}
+					%>
+				<%
+					}
+				%>
         		<div class="row homepage-features">
         			<div class="span4 homepage-feature homepage-feature-left">
         				<h2>

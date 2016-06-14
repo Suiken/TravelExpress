@@ -14,7 +14,7 @@ public class CheckLogIn extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher( "/index.html" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/index.jsp" ).forward( request, response );
     }
 
     @Override

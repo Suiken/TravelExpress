@@ -18,7 +18,7 @@ public class UserPublications extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        ArrayList<Publication>  publications = PublicationsDAO.getPublications((String) request.getSession().getAttribute("login"));
+        ArrayList<Publication>  publications = PublicationsDAO.getPublicationsByUser((String) request.getSession().getAttribute("login"));
         User user = UsersDAO.getUserByLogin((String) request.getSession().getAttribute("login"));
         request.setAttribute("publications", publications);
         request.setAttribute("user", user);
