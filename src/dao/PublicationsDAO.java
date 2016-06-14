@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PublicationsDAO {
     public static ArrayList<Publication> getPublicationsByUserLogin(String login) {
@@ -62,6 +63,43 @@ public class PublicationsDAO {
         return null;
     }
 
+    public static ArrayList<Publication> getPublicationsByUser(String userLogin){
+        try {
+            TravelExpressJDBC travelExpressJDBC = TravelExpressJDBC.getDatabaseConnection();
+            PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("Select * From publications where user_login = ?");
+            preparedStatement.setString(1, userLogin);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSetToPublications(resultSet);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static HashMap<Publication, Integer> getNumberOfPublicationsReservedByUser(String user){
+        try {
+            HashMap<Publication, Integer> publicationsReserved = new HashMap<>();
+            TravelExpressJDBC travelExpressJDBC = TravelExpressJDBC.getDatabaseConnection();
+            PreparedStatement preparedStatement = travelExpressJDBC.prepareStatement("" +
+                    "select count(reservations.id) as reservation_number, publications.* " +
+                    "from users join publications on users.login = publications.user_login " +
+                    "join reservations on users.login = reservations.user_login " +
+                    "where users.login = ? " +
+                    "group by publications.id");
+            preparedStatement.setString(1, user);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                Publication publication = resultSetToPublication(resultSet);
+                int reservationsNumber = resultSet.getInt("reservation_number");
+                publicationsReserved.put(publication, reservationsNumber);
+            }
+            return publicationsReserved;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static boolean updateNbPlaces(int id, int nbPlaces){
         TravelExpressJDBC databaseConnection = TravelExpressJDBC.getDatabaseConnection();
 
@@ -84,18 +122,24 @@ public class PublicationsDAO {
     private static ArrayList<Publication> resultSetToPublications(ResultSet resultSet) throws SQLException{
         ArrayList<Publication> publications = new ArrayList<>();
         while(resultSet.next()){
-            Publication publication = new Publication();
-            publication.setId(resultSet.getInt("id"));
-            publication.setContent(resultSet.getString("content"));
-            publication.setNbPlaces(resultSet.getInt("nb_places"));
-            publication.setPublicationDate(resultSet.getDate("publication_date"));
-            publication.setRunDate(resultSet.getDate("run_date"));
-            publication.setFrequency(resultSet.getInt("frequency"));
-            publication.setDeparture(resultSet.getString("departure"));
-            publication.setArrival(resultSet.getString("arrival"));
+            Publication publication = resultSetToPublication(resultSet);
 
             publications.add(publication);
         }
         return publications;
+    }
+
+    private static Publication resultSetToPublication(ResultSet resultSet) throws SQLException{
+        Publication publication = new Publication();
+        publication.setId(resultSet.getInt("id"));
+        publication.setContent(resultSet.getString("content"));
+        publication.setNbPlaces(resultSet.getInt("nb_places"));
+        publication.setPublicationDate(resultSet.getDate("publication_date"));
+        publication.setRunDate(resultSet.getDate("run_date"));
+        publication.setFrequency(resultSet.getInt("frequency"));
+        publication.setDeparture(resultSet.getString("departure"));
+        publication.setArrival(resultSet.getString("arrival"));
+
+        return publication;
     }
 }

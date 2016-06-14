@@ -1,4 +1,6 @@
 <%@ page import="model.User" %>
+<%@ page import="model.Publication" %>
+<%@ page import="java.util.HashMap" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="fr" class="js" data-locale="fr_FR">
 <head>
@@ -50,6 +52,7 @@
 <body itemscope="" itemtype="http://schema.org/Article">
 <%
     User user = (User) request.getAttribute("user");
+    HashMap<Publication, Integer> publicationsReserved = (HashMap<Publication, Integer>) request.getAttribute("publicationsReserved");
 %>
 <div id="skip-link"><a href="#maincontent">Aller au contenu</a>
 </div>
@@ -183,13 +186,24 @@
                     </div>
 
                     <div class="span8 dashboard-notifications-messages">
-                        <%= user.getFirstName() %><br/>
-                        <%= user.getLastName() %><br/>
-                        <%= user.getAddress() %><br/>
-                        <%= user.getCity() %><br/>
-                        <%= user.getState() %><br/>
-                        <%= user.getEmail() %><br/>
+                        <h3>Vos réservations</h3>
 
+                        <%
+                            for(Publication publication : publicationsReserved.keySet()){
+                        %>
+                        <table>
+                                <tr>
+                                    <td>De <%= publication.getDeparture() %></td>
+                                    <td>À <%= publication.getArrival() %></td>
+                                </tr>
+                                <tr>
+                                    <td>À <%= publication.getRunDate() %></td>
+                                    <td><%= publicationsReserved.get(publication) %> places réservées</td>
+                                </tr>
+                        </table>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
             </section>
